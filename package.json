@@ -1,0 +1,33 @@
+{
+  "name": "email_service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "proto:compile": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:src/proto --grpc_out=grpc_js:src/proto --ts_out=src/proto -I ./src/proto ./src/proto/*.proto"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "@types/nodemailer": "^6.4.17",
+    "@types/sequelize": "^4.28.20",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
+    "grpc-tools": "^1.13.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@grpc/proto-loader": "^0.8.0",
+    "dotenv": "^17.2.1",
+    "nodemailer": "^7.0.5",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.7"
+  }
+}
