@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Login Alert</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin:0; padding:0; background-color:#f4f6f9; font-family:Arial, sans-serif; color:#333;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f6f9; padding:30px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.06); overflow:hidden;">
+          
+          <!-- Header / Logo -->
+          <tr>
+            <td style="background:#fafafa; padding:20px; text-align:left; border-bottom:1px solid #eee;">
+              <img src="http://localhost:3001/desilogo.png" alt="DesiLinkr" width="180" style="display:block;">
+            </td>
+          </tr>
+          
+          <!-- Body Content -->
+          <tr>
+            <td style="padding:35px 40px; text-align:left;">
+              <h2 style="margin:0 0 15px 0; font-size:20px; color:#111; font-weight:600;">
+                New Login to Your Account
+              </h2>
+              <p style="font-size:15px; color:#444; margin:0 0 12px 0; line-height:1.6;">
+                Hi {{name}},  
+                We noticed a new login to your <strong>DesiLinkr</strong> account.
+              </p>
+              
+              <!-- Login Details -->
+              <table cellpadding="8" cellspacing="0" style="width:100%; font-size:14px; color:#444; margin:20px 0; border:1px solid #eee; border-radius:8px;">
+                <tr>
+                  <td style="font-weight:bold; width:120px;">Location:</td>
+                  <td>{{location}}</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:bold;">IP Address:</td>
+                  <td>{{ipAddress}}</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:bold;">Date/Time:</td>
+                  <td>{{dateTime}}</td>
+                </tr>
+              </table>
+              
+              <p style="font-size:14px; color:#555; margin:0 0 20px 0; line-height:1.5;">
+                If this was you, no further action is required.  
+                If you don’t recognize this activity, please secure your account immediately.
+              </p>
+              
+              <!-- Button -->
+              <div style="text-align:center; margin:30px 0;">
+                <a href="{{secureAccountUrl}}" 
+                   style="background-color:#e53935; color:#ffffff; text-decoration:none; 
+                          padding:14px 34px; border-radius:8px; font-size:16px; font-weight:600; 
+                          display:inline-block;">
+                  Secure Account
+                </a>
+              </div>
+            </td>
+          </tr>
+          
+          <!-- Footer -->
+          <tr>
+            <td style="background:#fafafa; text-align:center; padding:20px; font-size:13px; color:#777;">
+              If you did not perform this login, we strongly recommend updating your password.<br>
+              &copy; {{year}} DesiLinkr. All rights reserved.
+            </td>
+          </tr>
+          
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

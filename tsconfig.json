@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "types": ["jest","node"],
+    "target": "ES2020",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "exclude": [ "dist"]
+,
+  "include": ["src","tests","jest.config.*.ts"]
+}
