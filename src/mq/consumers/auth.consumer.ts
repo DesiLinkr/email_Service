@@ -6,7 +6,7 @@ import { FailEmailLogsRepository } from "../../repositories/failEmailLogs.reposi
 interface EmailData {
   to: string;
   subject: string;
-  data: object;
+  data: any;
   retry: number;
 }
 
@@ -45,7 +45,7 @@ export class AuthEmailConsumer {
           await this.emailService.sendEmail(
             emailData.to,
             emailData.subject,
-            "Verification",
+            emailData.data.context,
             emailData.data
           );
         } catch (error: any) {

@@ -11,6 +11,7 @@ export class AuthEmailValidation {
       verifyUrl: Joi.string().uri().required(),
       expiry: Joi.number().required(),
       year: Joi.string(),
+      context: Joi.string().valid("registration", "secondary").required(),
     }).required(),
     retry: Joi.number().default(0),
   });
