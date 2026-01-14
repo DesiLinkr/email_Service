@@ -1,7 +1,5 @@
 import { sendUnaryData, ServerUnaryCall } from "@grpc/grpc-js";
 import { AuthEmailProducer } from "../../mq/producers/auth.producer";
-import { validate } from "../../utils/validate";
-import { AuthEmailValidation } from "../../validations/auth.validation";
 import {
   AccessEmailRequest,
   emailServiceResponse,
@@ -22,12 +20,7 @@ export class AuthHandlers {
     try {
       await this.authEmailProducer.init();
 
-      const request = validate(
-        AuthEmailValidation.VerificationEmail,
-        call.request
-      );
-
-      await this.authEmailProducer.QueueVerificationEmail(request as any);
+      await this.authEmailProducer.QueueVerificationEmail(call.request as any);
 
       callback(null, { msg: "Email sent successfully" });
     } catch (error: any) {
@@ -40,9 +33,8 @@ export class AuthHandlers {
     callback: sendUnaryData<emailServiceResponse>
   ) => {
     try {
-      const request = validate(AuthEmailValidation.AccessEmail, call.request);
       await this.authEmailProducer.init();
-      await this.authEmailProducer.QueueAccessEmail(request as any);
+      await this.authEmailProducer.QueueAccessEmail(call.request as any);
 
       callback(null, { msg: "Email sent successfully" });
     } catch (error: any) {
@@ -55,13 +47,10 @@ export class AuthHandlers {
     callback: sendUnaryData<emailServiceResponse>
   ) => {
     try {
-      const request = validate(
-        AuthEmailValidation.forgotPassword,
-        call.request
-      );
-
       await this.authEmailProducer.init();
-      await this.authEmailProducer.QueueforgotPasswordEmail(request as any);
+      await this.authEmailProducer.QueueforgotPasswordEmail(
+        call.request as any
+      );
 
       callback(null, { msg: "Email sent successfully" });
     } catch (error: any) {
