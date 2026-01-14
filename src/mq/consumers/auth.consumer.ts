@@ -44,7 +44,7 @@ export class AuthEmailConsumer {
         try {
           await this.emailService.sendEmail(
             emailData.to,
-            emailData.subject,
+            "Welcome! Please confirm your email to get started",
             emailData.data.context,
             emailData.data
           );
@@ -66,12 +66,14 @@ export class AuthEmailConsumer {
             try {
               await this.failemailLogsRepo.createLog(
                 emailData.to,
-                emailData.subject,
+                "Welcome! Please confirm your email to get started",
                 "Verification",
                 emailData.data,
                 error.message
               );
             } catch (error) {
+              console.log();
+
               console.log(`unable to store log in database`);
             }
             console.log(
@@ -96,7 +98,7 @@ export class AuthEmailConsumer {
         try {
           await this.emailService.sendEmail(
             emailData.to,
-            emailData.subject,
+            "We noticed a new sign-in to your account",
             "access",
             emailData.data
           );
@@ -118,7 +120,7 @@ export class AuthEmailConsumer {
             try {
               await this.failemailLogsRepo.createLog(
                 emailData.to,
-                emailData.subject,
+                "We noticed a new sign-in to your account",
                 "access",
                 emailData.data,
                 error.message
@@ -147,7 +149,7 @@ export class AuthEmailConsumer {
         try {
           await this.emailService.sendEmail(
             forgotPasswordEmail.to,
-            forgotPasswordEmail.subject,
+            "Password reset request for your account",
             "forgotPassword",
             forgotPasswordEmail.data
           );
@@ -169,12 +171,14 @@ export class AuthEmailConsumer {
             try {
               await this.failemailLogsRepo.createLog(
                 forgotPasswordEmail.to,
-                forgotPasswordEmail.subject,
+                "Password reset request for your account",
                 "forgotPassword",
                 forgotPasswordEmail.data,
                 error.message
               );
             } catch (error) {
+              console.log(error);
+
               console.log(`unable to store log in database`);
             }
             console.error(
